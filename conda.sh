@@ -19,7 +19,7 @@ echo "c.NotebookApp.port = 8888" >> /root/.ipython/profile_default/ipython_noteb
 
 echo -e "import os\nos.environ['SPARK_HOME'] = '/root/spark'" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
 echo -e "import sys\nsys.path.insert(0, '/root/spark/python')" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
-echo -e "CLUSTER_URL = open('/root/spark-ec2/cluster-url').read().strip() >> /root/.ipython/profile_default/startup/00-pyspark-setup.py-
+echo -e "CLUSTER_URL = open('/root/spark-ec2/cluster-url').read().strip()" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py-
 
 
 PUBLIC_DNS=`wget -q -O - http://instance-data.ec2.internal/latest/meta-data/hostname`
