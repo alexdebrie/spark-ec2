@@ -23,8 +23,10 @@ echo "CLUSTER_URL = open('/root/spark-ec2/cluster-url').read().strip() >> /root/
 
 
 
-echo "Your Spark cluster is ready!\n\nTo use an iPython notebook, you should:\n\n \
-
-    1. Run: ./spark-ec2 -k <keypair> -i <key-file> login <cluster-name> \n \
-    2. Type: ipython notebook \n \
-    3. In your browser, go to http://<master-public-dns>:8880"
+echo "Your Spark cluster is ready!\n\nTo use an iPython notebook, you should:\n\n"
+echo "1. Run: ./spark-ec2 -k <keypair> -i <key-file> login <cluster-name> \n"
+echo "2. Type: ipython notebook \n" 
+echo "3. In your browser, go to http://"
+echo $PUBLIC_DNS
+echo "/8880"
+    

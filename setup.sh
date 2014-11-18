@@ -129,3 +129,5 @@ for module in $MODULES; do
   sleep 1
   cd /root/spark-ec2  # guard against setup.sh changing the cwd
 done
+
+source ./conda.sh
