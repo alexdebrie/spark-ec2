@@ -22,7 +22,7 @@ echo -e "import sys\nsys.path.insert(0, '/root/spark/python')" >> /root/.ipython
 echo -e "CLUSTER_URL = open('/root/spark-ec2/cluster-url').read().strip()" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py-
 
 
-PUBLIC_DNS=`wget -q -O - http://169.254.169.254/latest/meta-data/public-hostname'
+PUBLIC_DNS=$(curl http://169.254.169.254/latest/meta-data/public-hostname)
 echo -e "\n\niPython installed!\n\nTo use an iPython notebook, you should:\n\n"
 echo -e "1. Run: ./spark-ec2 -k keypair -i key-file login cluster-name"
 echo -e "2. Type: ipython notebook" 
