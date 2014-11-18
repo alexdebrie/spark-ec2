@@ -15,16 +15,16 @@ echo -e "Setting iPython settings...."
 ipython profile create default
 echo "c.NotebookApp.ip = '*'" >> /root/.ipython/profile_default/ipython_notebook_config.py
 echo "c.NotebookApp.open_browser = False" >> /root/.ipython/profile_default/ipython_notebook_config.py
-echo "c.NotebookApp.port = 8888" >> /root/.ipython/profile_default/ipython_notebook_config.py
+echo "c.NotebookApp.port = 8880" >> /root/.ipython/profile_default/ipython_notebook_config.py
 
 echo -e "import os\nos.environ['SPARK_HOME'] = '/root/spark'" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
 echo -e "import sys\nsys.path.insert(0, '/root/spark/python')" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
 echo -e "CLUSTER_URL = open('/root/spark-ec2/cluster-url').read().strip()" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py-
 
 
-PUBLIC_DNS=`wget -q -O - http://instance-data.ec2.internal/latest/meta-data/hostname`
-echo -e "Your Spark cluster is ready!\n\nTo use an iPython notebook, you should:\n\n"
+PUBLIC_DNS=`wget -q -O - http://169.254.169.254/latest/meta-data/public-hostname'
+echo -e "\n\niPython installed!\n\nTo use an iPython notebook, you should:\n\n"
 echo -e "1. Run: ./spark-ec2 -k keypair -i key-file login cluster-name"
 echo -e "2. Type: ipython notebook" 
-echo -e "3. In your browser, go to http://$PUBLIC_DNS/8880"
+echo -e "3. In your browser, go to http://$PUBLIC_DNS/8880\n\n"
     
