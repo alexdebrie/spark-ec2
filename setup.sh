@@ -131,3 +131,4 @@ for module in $MODULES; do
 done
 
 source ./conda.sh
+/root/spark-ec2/copy-dir /root/anaconda
