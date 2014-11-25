@@ -9,3 +9,5 @@ rm -rf Anaconda-2.1.0-Linux-x86_64.sh
 
 echo "export PATH=/root/anaconda/bin:$PATH" >> /root/.bash_profile
 source /root/.bash_profile
+
+echo "export PYSPARK_PYTHON=/root/anaconda/bin/python" >> /root/spark-ec2/templates/root/spark/conf/spark-env.sh
