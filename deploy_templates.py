@@ -71,6 +71,8 @@ template_vars = {
   "default_tachyon_mem": "%dMB" % tachyon_mb,
   "aws_access_key_id": os.getenv("AWS_ACCESS_KEY_ID"),
   "aws_secret_access_key": os.getenv("AWS_SECRET_ACCESS_KEY"),
+  "jdbc_metastore": os.getenv("JDBC_METASTORE"),
+  "thrift_uri": os.getenv("THRIFT_URI"),
 }
 
 template_dir="/root/spark-ec2/templates"
