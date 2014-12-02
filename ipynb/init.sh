@@ -9,6 +9,9 @@ echo "c.NotebookApp.ip = '*'" >> /root/.ipython/profile_default/ipython_notebook
 echo "c.NotebookApp.open_browser = False" >> /root/.ipython/profile_default/ipython_notebook_config.py
 echo "c.NotebookApp.port = 8888" >> /root/.ipython/profile_default/ipython_notebook_config.py
 echo "c.NotebookApp.certfile = u'/root/.ipynbcert.pem'" >> /root/.ipython/profile_default/ipython_notebook_config.py
+echo "$IPYNB_PASSWORD" >> /root/.ipython/profile_default/nbpasswd.txt
+echo "PWDFILE='/root/.ipython/profile_default/nbpasswd.txt'"
+echo "c.NotebookApp.password = open(PWDFILE).read().strip()"
 
 echo -e "import os\nos.environ['SPARK_HOME'] = '/root/spark'" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
 echo -e "import sys\nsys.path.insert(0, '/root/spark/python')" >> /root/.ipython/profile_default/startup/00-pyspark-setup.py
