@@ -124,8 +124,11 @@ chmod u+x /root/spark/conf/spark-env.sh
 
 # Setup each module
 for module in $MODULES; do
-  echo "Setting up $module"
-  source ./$module/setup.sh
-  sleep 1
+  if [ -f ./$module/setup.sh ]
+  then
+    echo "Setting up $module"
+    source ./$module/setup.sh
+    sleep 1
+  fi
   cd /root/spark-ec2  # guard against setup.sh changing the cwd
 done
