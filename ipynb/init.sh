@@ -1,6 +1,7 @@
 export OPENSSL_CONF=/root/anaconda/ssl/openssl.cnf
+export PUBLIC_DNS=`wget -q -O - http://instance-data.ec2.internal/latest/meta-data/hostname`
 cd /root
-openssl req -x509 -nodes -days 365 -subj '/' -newkey rsa:1024 -keyout .ipynbcert.pem -out .ipynbcert.pem
+openssl req -x509 -nodes -days 365 -subj '/CN=$PUBLIC_DNS' -newkey rsa:1024 -keyout .ipynbcert.pem -out .ipynbcert.pem
 
 ## Create ipython profile
 echo -e "Setting iPython settings...."
